@@ -1,0 +1,105 @@
+import React from 'react';
+import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+
+const CaseStudies = () => {
+  const projects = [
+    {
+      overline: "Fintech / AI Platform",
+      title: "Luminara: Next-Gen Asset Management",
+      description: "An end-to-end institutional platform processing billions in real-time transactions with predictive AI insights.",
+      tags: ["React", "Python", "AWS"],
+      imageAlt: "Dark dashboard analytics interface",
+      // Added high-quality dark mode dashboard image
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      reverseLayout: false,
+    },
+    {
+      overline: "IOT / Infrastructure",
+      title: "Nexus Grid: Urban Smart Systems",
+      description: "Architecting the digital backbone for the world's first fully autonomous logistics hub in Singapore.",
+      tags: ["IOT", "Kubernetes", "Rust"],
+      imageAlt: "Dark server rack infrastructure",
+      // Added high-quality server rack infrastructure image
+      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", 
+      reverseLayout: true,
+    }
+  ];
+
+  return (
+    <section className="w-full bg-[#09101A] px-6 py-24 flex justify-center">
+      <div className="max-w-275 w-full">
+        
+        {/* Section Header */}
+        <div className="mb-20">
+          <p className="text-[#4880FF] text-[11px] font-bold tracking-[0.15em] uppercase mb-4">
+            Case Studies
+          </p>
+          <h2 className="text-4xl md:text-[44px] font-semibold text-white tracking-tight">
+            The Portfolio
+          </h2>
+        </div>
+
+        {/* Projects Container */}
+        <div className="flex flex-col gap-32">
+          {projects.map((project, index) => (
+            <div 
+              key={index} 
+              className={`flex flex-col ${project.reverseLayout ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12 lg:gap-20`}
+            >
+              
+              {/* Text Content Area */}
+              <div className="flex-1 w-full">
+                <p className="text-[#8B95A5] text-[11px] font-bold tracking-[0.15em] uppercase mb-4">
+                  {project.overline}
+                </p>
+                
+                <h3 className="text-3xl md:text-[38px] font-bold text-white leading-[1.1] mb-6">
+                  {project.title}
+                </h3>
+                
+                <p className="text-[#8B95A5] text-[15px] leading-relaxed font-medium mb-8 max-w-105">
+                  {project.description}
+                </p>
+                
+                {/* Tech Tags */}
+                <div className="flex flex-wrap gap-3 mb-10">
+                  {project.tags.map((tag, idx) => (
+                    <span 
+                      key={idx}
+                      className="px-4 py-1.5 rounded-full bg-[#1A2332]/60 border border-[#1E293B] text-[#8B95A5] text-[10px] font-bold tracking-widest uppercase"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                
+                {/* Action Link */}
+                <Link to="/case-study/vrit" className="inline-flex items-center gap-2 text-[#B4D0FF] text-[14px] font-bold hover:text-white transition-colors group">
+                  View Case Study 
+                  <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" strokeWidth={2.5} />
+                </Link>
+              </div>
+
+              {/* Image Area */}
+              <div className="flex-1 w-full relative">
+                 <img 
+                    src={project.image}
+                    alt={project.imageAlt}
+                    className="w-full aspect-4/3 object-cover rounded-xl border border-[#1E293B] shadow-[0_0_40px_rgba(0,0,0,0.5)]"
+                 />
+                 {/* Inner shadow overlay for depth */}
+                 <div className="absolute inset-0 rounded-xl shadow-[inset_0_0_40px_rgba(9,16,26,0.6)] pointer-events-none"></div>
+              </div>
+
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
+export default CaseStudies;
