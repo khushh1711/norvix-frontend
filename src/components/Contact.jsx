@@ -45,11 +45,11 @@ const Contact = () => {
           <div className="flex flex-col gap-6">
             <div className="flex items-center gap-4 text-white">
               <Mail className="text-[#4880FF] w-5 h-5" />
-              <span className="text-[15px] font-medium">hello@norvix.studio</span>
+              <span className="text-[15px] font-medium">work.norvix@gmail.com</span>
             </div>
             <div className="flex items-center gap-4 text-white">
               <MapPin className="text-[#4880FF] w-5 h-5" />
-              <span className="text-[15px] font-medium">Ahmedabad | London | New York</span>
+              <span className="text-[15px] font-medium">Ahmedabad</span>
             </div>
           </div>
         </div>

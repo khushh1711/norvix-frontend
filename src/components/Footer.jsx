@@ -1,80 +1,50 @@
 import React from 'react';
-import { Globe, AtSign, Code } from 'lucide-react';
 
 const Footer = () => {
+  const handleScroll = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <footer className="w-full bg-[#09101A] px-6 pt-24 pb-12 flex justify-center border-t border-[#1E293B]">
-      <div className="max-w-275 w-full flex flex-col lg:flex-row justify-between gap-16 lg:gap-8">
+    <footer className="w-full bg-[#09101A] px-6 pt-24 pb-16 flex justify-center border-t border-[#1E293B]">
+      <div className="max-w-275 w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
         
-        {/* Left Section: Brand & Bio */}
-        <div className="max-w-90 flex flex-col justify-between">
-          <div>
-            <h2 className="text-[28px] font-bold text-white tracking-widest uppercase mb-6">
-              NORVIX
-            </h2>
-            <p className="text-[#8B95A5] text-[15px] font-medium leading-relaxed">
-              Architecting high-performance digital solutions for global enterprises. Engineering excellence at the edge of innovation.
-            </p>
-          </div>
-          
-          {/* Social / Contact Icons */}
-          <div className="flex items-center gap-6 mt-12">
-            <a href="#" className="text-[#E2E8F0] hover:text-[#4880FF] transition-colors">
-              <Globe className="w-5 h-5" strokeWidth={2} />
-            </a>
-            <a href="#" className="text-[#E2E8F0] hover:text-[#4880FF] transition-colors">
-              <AtSign className="w-5 h-5" strokeWidth={2} />
-            </a>
-            <a href="#" className="text-[#E2E8F0] hover:text-[#4880FF] transition-colors">
-              <Code className="w-5 h-5" strokeWidth={2} />
-            </a>
-          </div>
+        {/* Column 1: Brand (Takes up 4 columns) */}
+        <div className="md:col-span-4 flex flex-col">
+          <h2 className="text-[28px] font-bold text-white tracking-widest uppercase mb-4">NORVIX</h2>
+          <p className="text-[#64748B] text-[14px] font-medium leading-relaxed max-w-70">
+            Architecting high-performance digital solutions for global enterprises. Engineering excellence at the edge of innovation.
+          </p>
         </div>
 
-        {/* Right Section: Navigation Links & Copyright */}
-        <div className="flex flex-col justify-between lg:items-end">
+        {/* Column 2: Navigation (Takes up 2 columns) */}
+        <div className="md:col-span-2 flex flex-col gap-4">
+          <h3 className="text-white text-[11px] font-bold tracking-[0.15em] uppercase mb-2">Company</h3>
+          <button onClick={() => handleScroll('capabilities')} className="text-left text-[#8B95A5] text-[14px] font-medium hover:text-white transition-colors cursor-pointer">Capabilities</button>
+          <button onClick={() => handleScroll('case-studies')} className="text-left text-[#8B95A5] text-[14px] font-medium hover:text-white transition-colors cursor-pointer">Portfolio</button>
+          <button onClick={() => handleScroll('process')} className="text-left text-[#8B95A5] text-[14px] font-medium hover:text-white transition-colors cursor-pointer">Methodology</button>
+        </div>
+
+        {/* Column 3: Resources (Takes up 2 columns) */}
+        <div className="md:col-span-2 flex flex-col gap-4">
+          <h3 className="text-white text-[11px] font-bold tracking-[0.15em] uppercase mb-2">Resources</h3>
+          <button onClick={() => handleScroll('insights')} className="text-left text-[#8B95A5] text-[14px] font-medium hover:text-white transition-colors cursor-pointer">Insights</button>
+          <a href="/journal" className="text-left text-[#8B95A5] text-[14px] font-medium hover:text-white transition-colors">The Journal</a>
+          <button onClick={() => handleScroll('contact')} className="text-left text-[#8B95A5] text-[14px] font-medium hover:text-white transition-colors cursor-pointer">Contact Desk</button>
+        </div>
+
+        {/* Column 4: Legal (Takes up 4 columns, aligned right) */}
+        <div className="md:col-span-4 flex flex-col md:items-end gap-4 md:text-right">
+          <h3 className="text-white text-[11px] font-bold tracking-[0.15em] uppercase mb-2">Legal</h3>
+          <a href="#" className="text-[#8B95A5] text-[14px] font-medium hover:text-white transition-colors">Privacy Policy</a>
+          <a href="#" className="text-[#8B95A5] text-[14px] font-medium hover:text-white transition-colors">Terms of Service</a>
           
-          {/* Links Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-12 md:gap-20">
-            
-            {/* Column 1 */}
-            <div className="flex flex-col gap-6">
-              <h3 className="text-white text-[11px] font-bold tracking-[0.15em] uppercase mb-2">
-                Capabilities
-              </h3>
-              <a href="#" className="text-[#E2E8F0] text-[13px] font-medium hover:text-[#4880FF] transition-colors">Engineering</a>
-              <a href="#" className="text-[#E2E8F0] text-[13px] font-medium hover:text-[#4880FF] transition-colors">AI Strategy</a>
-              <a href="#" className="text-[#E2E8F0] text-[13px] font-medium hover:text-[#4880FF] transition-colors">Experiences</a>
-            </div>
-
-            {/* Column 2 */}
-            <div className="flex flex-col gap-6">
-              <h3 className="text-white text-[11px] font-bold tracking-[0.15em] uppercase mb-2">
-                Studio
-              </h3>
-              <a href="#" className="text-[#E2E8F0] text-[13px] font-medium hover:text-[#4880FF] transition-colors">Journal</a>
-              <a href="#" className="text-[#E2E8F0] text-[13px] font-medium hover:text-[#4880FF] transition-colors">Careers</a>
-              <a href="#" className="text-[#E2E8F0] text-[13px] font-medium hover:text-[#4880FF] transition-colors">Insights</a>
-            </div>
-
-            {/* Column 3 */}
-            <div className="flex flex-col gap-6">
-              <h3 className="text-white text-[11px] font-bold tracking-[0.15em] uppercase mb-2">
-                Legal
-              </h3>
-              <a href="#" className="text-[#E2E8F0] text-[13px] font-medium hover:text-[#4880FF] transition-colors">Privacy</a>
-              <a href="#" className="text-[#E2E8F0] text-[13px] font-medium hover:text-[#4880FF] transition-colors">Terms</a>
-            </div>
-
-          </div>
-
-          {/* Copyright */}
-          <div className="mt-20 lg:mt-0 pt-12 lg:pt-0 text-left lg:text-right">
-            <p className="text-[#8B95A5] text-[10px] font-bold tracking-widest uppercase">
-              © {new Date().getFullYear()} NORVIX STUDIO. ALL RIGHTS RESERVED.
-            </p>
-          </div>
-
+          <p className="text-[#475569] text-[10px] font-bold tracking-widest uppercase mt-12 md:mt-8">
+            © {new Date().getFullYear()} NORVIX STUDIO. ALL RIGHTS RESERVED.
+          </p>
         </div>
 
       </div>
